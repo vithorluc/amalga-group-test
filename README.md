@@ -105,6 +105,8 @@ mutation CreateNewUser($input: CreateUserInput!) {
 }
 ```
 
+### Response
+
 ```
 {
   "data": {
