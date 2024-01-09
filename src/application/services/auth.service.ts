@@ -2,11 +2,12 @@ import { Injectable } from '@nestjs/common';
 import * as bcrypt from 'bcryptjs';
 import { User } from '@domain/models/user.model';
 import { UserRepository } from '@infra/repositories/user.repository';
-
+import { JwtService } from '@nestjs/jwt';
 @Injectable()
 export class AuthService {
   constructor(
     private readonly userRepository: UserRepository,
+    private readonly jwtService: JwtService,
   ) {}
 
   async validateUser(username: string, pass: string): Promise<User | null> {
@@ -19,7 +20,8 @@ export class AuthService {
   }
 
   async login(user: User) {
-    const token = require('crypto').randomBytes(64).toString('hex');
+    const payload = { username: user.username }
+    const token = this.jwtService.sign(payload)
 
     return {
       token,
