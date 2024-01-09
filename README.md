@@ -105,6 +105,20 @@ mutation CreateNewUser($input: CreateUserInput!) {
 }
 ```
 
+```
+{
+  "data": {
+    "login": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InZpdGhvciIsImlhdCI6MTcwNDgwMzAzNywiZXhwIjoxNzA0ODA2NjM3fQ.BlJtHTPONttAKC-JsYfE4_IPfYupDcATHiT-p0Z-lTI",
+      "user": {
+        "id": "2",
+        "username": "vithor"
+      }
+    }
+  }
+}
+```
+
 Similarly, for this mutation, paste it in the query window and the variables in the variables window of the GraphQL Playground and execute it.
 
 ```json
